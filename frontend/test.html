@@ -1,0 +1,30 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Details</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '../backend/backend/users/couple/',
+            method: 'GET',
+            success: function (data) {
+                console.log('Bride:', data.bride.firstname, data.bride.lastname);
+                console.log('Groom:', data.groom.firstname, data.groom.lastname);
+                // Handle the names in your frontend as needed
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
